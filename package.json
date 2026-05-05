@@ -7,7 +7,7 @@
     "inject-analytics": "node inject-analytics.js"
   },
   "dependencies": {
-    "@vercel/analytics": "^1.1.1"
-  },
-  "devDependencies": {}
+    "@vercel/analytics": "^1.1.1",
+    "@vercel/speed-insights": "^2.0.0"
+  }
 }
