@@ -563,13 +563,44 @@
                 const duration = (Math.random() * 0.4) + 0.9; // 0.9s to 1.3s
                 const delay = Math.random() * 0.12; // 0s to 0.12s
                 
-                bubble.style.setProperty('--dx', dx + 'px');
-                bubble.style.setProperty('--dy', dy + 'px');
-                bubble.style.setProperty('--scale', scale);
-                bubble.style.setProperty('--dur', duration + 's');
-                bubble.style.animationDelay = delay + 's';
-                
                 document.body.appendChild(bubble);
+                
+                // Use Web Animations API (fully compatible with iOS Safari / Android)
+                // This bypasses the mobile Safari bug where CSS variables inside @keyframes do not update.
+                bubble.animate([
+                    { 
+                        transform: 'translate(-50%, -50%) translate3d(0, 0, 0) scale(0.2)', 
+                        opacity: 0 
+                    },
+                    { 
+                        opacity: 0.95,
+                        offset: 0.1 
+                    },
+                    { 
+                        opacity: 0.92,
+                        transform: `translate(-50%, -50%) translate3d(${dx}px, ${dy}px, 0) scale(${scale})`,
+                        offset: 0.82
+                    },
+                    { 
+                        opacity: 0.8,
+                        transform: `translate(-50%, -50%) translate3d(${dx}px, ${dy}px, 0) scale(${scale * 1.15})`,
+                        offset: 0.88
+                    },
+                    { 
+                        opacity: 0.3,
+                        transform: `translate(-50%, -50%) translate3d(${dx}px, ${dy}px, 0) scale(${scale * 1.35})`,
+                        offset: 0.94
+                    },
+                    { 
+                        transform: `translate(-50%, -50%) translate3d(${dx}px, ${dy}px, 0) scale(${scale * 1.55})`,
+                        opacity: 0
+                    }
+                ], {
+                    duration: duration * 1000,
+                    delay: delay * 1000,
+                    easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                    fill: 'forwards'
+                });
                 
                 // Safely remove bubble after its specific animation finishes
                 setTimeout(() => bubble.remove(), (duration + delay) * 1000 + 100);
