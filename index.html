@@ -1264,7 +1264,7 @@
             <div class="lm-header">
                 <div class="lm-tag"><div class="lm-tag-dot"></div>會員專屬</div>
                 <div class="lm-title" id="lm-title-text">我的集點卡 🎫</div>
-                <div class="lm-subtitle">每次洗車即可累積點數，集滿 <strong style="color:#ffb6c1;">3 點</strong> 兌換精彩回饋！</div>
+                <div class="lm-subtitle">每次洗車即可累積點數，集滿 <strong style="color:#ffb6c1;">6 點</strong> 兌換精彩回饋！</div>
             </div>
 
             <!-- Card content -->
@@ -1277,7 +1277,7 @@
                 <!-- Stamp card (hidden until loaded) -->
                 <div id="lm-card-area" style="display:none;">
                     <div class="stamp-card">
-                        <div class="stamp-card-label">Ch Studio 集點卡 &middot; 3 格滿點</div>
+                        <div class="stamp-card-label">Ch Studio 集點卡 &middot; 6 格滿點</div>
                         <div class="stamp-grid" id="stamp-grid">
                             <!-- 6 slots rendered by JS -->
                         </div>
@@ -1286,15 +1286,15 @@
                         </div>
                         <div class="stamp-count-row">
                             <span class="stamp-count-text">目前點數</span>
-                            <span class="stamp-count-number" id="stamp-count-display">0 / 3</span>
+                            <span class="stamp-count-number" id="stamp-count-display">0 / 6</span>
                         </div>
                     </div>
 
                     <div class="lm-reward">
                         <div class="lm-reward-icon">🎁</div>
-                        <div class="lm-reward-text">
-                            集滿 <strong>3 點</strong> 即可兌換 <strong>$50 折價券</strong>一張<br>
-                            或更換 <strong>小保養加購</strong> 優惠
+                        <div class="lm-reward-text" style="font-size: 0.9em; line-height: 1.6;">
+                            集滿 <strong>3 點</strong> 即可兌換 <strong>$50 折價券</strong>一張 或更換 <strong>小保養加購</strong> 優惠<br>
+                            集滿 <strong>6 點</strong> 即可兌換 <strong>$120 折價券</strong>一張 或更換 <strong>大保養加購</strong> 優惠
                         </div>
                     </div>
 
@@ -1737,6 +1737,14 @@
                                 <td>美白蠟加購 全車車漆深層清潔</td>
                                 <td class="addon-price">+50$</td>
                             </tr>
+                            <tr>
+                                <td>全車漆面脫脂除蠟</td>
+                                <td class="addon-price">+100$</td>
+                            </tr>
+                            <tr>
+                                <td>全車美容瓷土除顆粒</td>
+                                <td class="addon-price">+100$</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -1904,10 +1912,12 @@
             loyaltyModalBd.classList.add('open');
             userDropdown.classList.remove('open');
             dropdownBackdrop.classList.remove('open');
+            document.body.style.overflow = 'hidden';
             loadUserPoints();
         }
         function closeLoyaltyModal() {
             loyaltyModalBd.classList.remove('open');
+            document.body.style.overflow = '';
         }
         viewMoreBtn.addEventListener('click', openLoyaltyModal);
         loyaltyModalClose.addEventListener('click', closeLoyaltyModal);
@@ -1933,7 +1943,7 @@
         }
 
         function renderStampCard(points) {
-            const total = 3;
+            const total = 6;
             const filled = Math.min(points, total);
             // Build stamp slots
             stampGrid.innerHTML = '';
@@ -1989,10 +1999,12 @@
             authOverlay.classList.remove('hidden', 'hiding');
             showView('login');
             clearError();
+            document.body.style.overflow = 'hidden';
         };
 
         function hideAuthOverlay() {
             authOverlay.classList.add('hiding');
+            document.body.style.overflow = '';
             setTimeout(() => {
                 authOverlay.classList.add('hidden');
                 authOverlay.classList.remove('hiding');
