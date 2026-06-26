@@ -4,24 +4,1311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Zn Wash 專業決機車美研 | 霧峰機車鍍膜、精致洗車</title>
-    <meta name="description" content="Zn Wash 位於台中霧峰，提供專業機車鍍膜、車體美研與精致洗車服務。預約制細致施工，讓您的愛車煥然一新。">
-    <meta name="keywords" content="Zn Wash, 霧峰洗車, 台中機車鍍膜, 朝陽科技大學洗車, 機車美研">
-    <meta name="author" content="Zn Wash">
-    <meta property="og:title" content="Zn Wash | 台中霧峰・大里 專業機車代洗">
-    <meta property="og:description" content="白牌車友限定！細致泡沫刷洗、封體鍍膜、集點折扣優惠。台中霧峰／大里服務，立即預約 Zn Wash！">
+    <title>Ch Studio 專業決機車美研 | 霧峰機車鍍膜、精致洗車</title>
+    <meta name="description" content="Ch Studio 位於台中霧峰，提供專業機車鍍膜、車體美研與精致洗車服務。預約制細致施工，讓您的愛車煥然一新。">
+    <meta name="keywords" content="Ch Studio, 霧峰洗車, 台中機車鍍膜, 朝陽科技大學洗車, 機車美研">
+    <meta name="author" content="Ch Studio">
+    <meta property="og:title" content="Ch Studio | 台中霧峰・大里 專業機車代洗">
+    <meta property="og:description" content="白牌車友限定！細致泡沫刷洗、封體鍍膜、集點折扣優惠。台中霧峰／大里服務，立即預約 Ch Studio！">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Serif+TC:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Serif+TC:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+
+    <style>
+        /* ============================================================
+           AUTH OVERLAY — Premium Split-Layout Design
+           ============================================================ */
+
+        /* Full-screen overlay */
+        #auth-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: stretch;
+            overflow: hidden;
+            transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        #auth-overlay.hiding {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #auth-overlay.hidden {
+            display: none;
+        }
+
+        /* ── LEFT PANEL — Brand / Hero ── */
+        .auth-left {
+            display: none; /* hidden on mobile */
+            flex: 1;
+            position: relative;
+            background: #050505;
+            overflow: hidden;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 56px 52px;
+        }
+
+        @media (min-width: 900px) {
+            .auth-left { display: flex; }
+        }
+
+        /* Ambient glow orbs on left panel */
+        .auth-left-glow-1 {
+            position: absolute;
+            top: -80px; left: -80px;
+            width: 420px; height: 420px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,182,193,0.18) 0%, transparent 68%);
+            pointer-events: none;
+        }
+        .auth-left-glow-2 {
+            position: absolute;
+            bottom: -60px; right: -60px;
+            width: 340px; height: 340px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(229,193,88,0.12) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .auth-left-glow-3 {
+            position: absolute;
+            top: 40%; left: 35%;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,182,193,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Brand mark on left */
+        .auth-brand-mark {
+            position: absolute;
+            top: 48px; left: 52px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.6rem;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+        .auth-brand-mark span { color: #ffb6c1; }
+
+        /* Large decorative icon / illustration area */
+        .auth-left-visual {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -58%);
+            text-align: center;
+        }
+        .auth-left-visual .visual-emoji {
+            font-size: 7rem;
+            line-height: 1;
+            filter: drop-shadow(0 0 40px rgba(255,182,193,0.5));
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-12px); }
+        }
+
+        /* Decorative ping rings */
+        .auth-ping-ring {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -72%);
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,182,193,0.15);
+            animation: pingRing 3s ease-out infinite;
+        }
+        .auth-ping-ring:nth-child(2) {
+            width: 260px; height: 260px;
+            animation-delay: 0.6s;
+        }
+        .auth-ping-ring:nth-child(3) {
+            width: 340px; height: 340px;
+            animation-delay: 1.2s;
+        }
+        @keyframes pingRing {
+            0%   { opacity: 0.5; transform: translate(-50%,-72%) scale(0.9); }
+            100% { opacity: 0;   transform: translate(-50%,-72%) scale(1.15); }
+        }
+
+        /* Left panel text content */
+        .auth-left-content {
+            position: relative;
+            z-index: 2;
+        }
+        .auth-left-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255,182,193,0.1);
+            border: 1px solid rgba(255,182,193,0.25);
+            border-radius: 30px;
+            padding: 5px 14px;
+            font-size: 0.7rem;
+            color: #ffb6c1;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .auth-left-tag-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #ffb6c1;
+            box-shadow: 0 0 8px rgba(255,182,193,0.8);
+            animation: pulse-dot 2s ease infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.4; }
+        }
+        .auth-left-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            letter-spacing: 0.3px;
+        }
+        .auth-left-headline em {
+            font-style: italic;
+            background: linear-gradient(135deg, #ffb6c1, #e5c158);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .auth-left-desc {
+            font-size: 0.9rem;
+            color: #888;
+            line-height: 1.75;
+            max-width: 320px;
+            margin-bottom: 28px;
+        }
+
+        /* Feature badges */
+        .auth-features {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .auth-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: #aaa;
+        }
+        .auth-feature-icon {
+            width: 30px; height: 30px;
+            border-radius: 8px;
+            background: rgba(255,182,193,0.08);
+            border: 1px solid rgba(255,182,193,0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        /* Divider line between panels */
+        .auth-panel-divider {
+            display: none;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.07) 30%, rgba(255,255,255,0.07) 70%, transparent);
+            flex-shrink: 0;
+        }
+        @media (min-width: 900px) {
+            .auth-panel-divider { display: block; }
+        }
+
+        /* ── RIGHT PANEL — Form ── */
+        .auth-right {
+            width: 100%;
+            background: #050505;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 24px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        @media (min-width: 900px) {
+            .auth-right {
+                width: 420px;
+                flex-shrink: 0;
+                padding: 56px 52px;
+            }
+        }
+
+        /* Mobile brand mark (only shown on mobile/small) */
+        .auth-mobile-brand {
+            display: block;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .auth-mobile-brand h2 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .auth-mobile-brand p {
+            font-size: 0.72rem;
+            color: #555;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+        @media (min-width: 900px) {
+            .auth-mobile-brand { display: none; }
+        }
+
+        /* Form wrapper */
+        #auth-form-wrap {
+            width: 100%;
+            max-width: 360px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Form section heading */
+        .auth-form-heading {
+            margin-bottom: 24px;
+        }
+        .auth-form-heading h3 {
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .auth-form-heading p {
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Error / success message */
+        .auth-error {
+            margin-bottom: 16px;
+            padding: 11px 14px;
+            border-radius: 10px;
+            font-size: 0.79rem;
+            text-align: center;
+            display: none;
+            line-height: 1.5;
+        }
+        .auth-error.visible  { display: block; }
+        .auth-error.is-error {
+            background: rgba(239,68,68,0.08);
+            border: 1px solid rgba(239,68,68,0.22);
+            color: #f87171;
+        }
+        .auth-error.is-success {
+            background: rgba(34,197,94,0.07);
+            border: 1px solid rgba(34,197,94,0.2);
+            color: #4ade80;
+        }
+
+        /* Input label */
+        .auth-label {
+            display: block;
+            font-size: 0.72rem;
+            color: #666;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            margin-top: 2px;
+        }
+
+        .auth-input {
+            width: 100%;
+            padding: 13px 15px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.09);
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+            display: block;
+            margin-bottom: 14px;
+        }
+        .auth-input::placeholder { color: #444; }
+        .auth-input:focus {
+            border-color: rgba(255,182,193,0.55);
+            background: rgba(255,255,255,0.04);
+            box-shadow: 0 0 0 3px rgba(255,182,193,0.07);
+        }
+
+        /* Primary button */
+        .auth-btn-primary {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ffb6c1 0%, #ff9eaf 100%);
+            color: #1a0a0d;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 20px rgba(255,182,193,0.25);
+            margin-top: 4px;
+        }
+        .auth-btn-primary:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 28px rgba(255,182,193,0.35);
+        }
+        .auth-btn-primary:active { transform: translateY(0); }
+
+        /* Footer link row */
+        .auth-footer-links {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.76rem;
+            margin-top: 16px;
+        }
+        .auth-footer-links a {
+            color: #555;
+            cursor: pointer;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+        .auth-footer-links a:hover { color: #ffb6c1; }
+        .auth-footer-links.center { justify-content: center; }
+
+        /* Spam reminder box */
+        .auth-spam-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: rgba(229,193,88,0.07);
+            border: 1px solid rgba(229,193,88,0.2);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 16px;
+            margin-top: -4px;
+        }
+        .auth-spam-note-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .auth-spam-note-text {
+            font-size: 0.76rem;
+            color: #c9a93a;
+            line-height: 1.55;
+        }
+        .auth-spam-note-text strong { color: #e5c158; }
+
+        /* View animation */
+        .auth-view { display: none; }
+        .auth-view.active {
+            display: block;
+            animation: authFadeIn 0.35s ease forwards;
+        }
+        @keyframes authFadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Bottom encrypted text */
+        .auth-encrypted {
+            margin-top: 28px;
+            font-size: 0.58rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: #2a2a2a;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Thin separator */
+        .auth-sep {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.07), transparent);
+            margin: 20px 0;
+        }
+
+
+
+        /* Background glow orbs for auth */
+        .auth-glow-1 {
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 182, 193, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .auth-glow-2 {
+            position: absolute;
+            bottom: -5%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(229, 193, 88, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Auth card */
+        #auth-card {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 420px;
+            background: #0d0d0f;
+            border: 1px solid #1f1f23;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
+            font-family: 'Inter', sans-serif;
+            color: #e0e0e0;
+        }
+
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .auth-logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.9rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .auth-logo p {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        .auth-view-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .auth-error {
+            margin-bottom: 16px;
+            padding: 10px 14px;
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 10px;
+            color: #f87171;
+            font-size: 0.78rem;
+            text-align: center;
+            display: none;
+        }
+
+        .auth-error.visible {
+            display: block;
+        }
+
+        .auth-input {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 0.875rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .auth-input::placeholder {
+            color: #555;
+        }
+
+        .auth-input:focus {
+            border-color: rgba(255, 182, 193, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .auth-btn-primary {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            background: #fff;
+            color: #000;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .auth-btn-primary:hover {
+            opacity: 0.88;
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            gap: 12px;
+        }
+
+        .auth-divider-line {
+            flex: 1;
+            height: 1px;
+            background: #222;
+        }
+
+        .auth-divider span {
+            font-size: 0.6rem;
+            color: #444;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .auth-btn-google {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+            font-size: 0.875rem;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background 0.2s, border-color 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .auth-btn-google:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+
+        .auth-footer-links {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #555;
+        }
+
+        .auth-footer-links a {
+            color: #555;
+            cursor: pointer;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .auth-footer-links a:hover {
+            color: #fff;
+        }
+
+        .auth-footer-links.center {
+            justify-content: center;
+        }
+
+        .auth-view {
+            display: none;
+            animation: authFadeIn 0.35s ease forwards;
+        }
+
+        .auth-view.active {
+            display: block;
+        }
+
+        @keyframes authFadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .auth-encrypted {
+            margin-top: 32px;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: #333;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ===================== USER ACCOUNT MENU (Top Right) ===================== */
+        #user-account-btn {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 40px;
+            padding: 6px 14px 6px 8px;
+            transition: background 0.2s, border-color 0.2s;
+            position: relative;
+        }
+
+        #user-account-btn.visible {
+            display: flex;
+        }
+
+        #user-account-btn:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 182, 193, 0.4);
+        }
+
+        .user-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffb6c1, #e5c158);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            flex-shrink: 0;
+        }
+
+        .user-name-short {
+            font-size: 0.8rem;
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            max-width: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Dropdown */
+        #user-dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            width: 240px;
+            background: #0d0d0f;
+            border: 1px solid #2a2a2e;
+            border-radius: 14px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            display: none;
+            z-index: 1000;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #user-dropdown.open {
+            display: block;
+            animation: dropdownFadeIn 0.2s ease forwards;
+        }
+
+        @keyframes dropdownFadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .dropdown-header {
+            padding: 16px 18px 12px;
+            border-bottom: 1px solid #1e1e22;
+        }
+
+        .dropdown-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .dropdown-email {
+            font-size: 0.72rem;
+            color: #666;
+        }
+
+        .dropdown-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+            flex-shrink: 0;
+        }
+
+        .status-text {
+            font-size: 0.68rem;
+            color: #22c55e;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        .dropdown-last-login {
+            font-size: 0.68rem;
+            color: #555;
+            margin-top: 6px;
+        }
+
+        .dropdown-logout-btn {
+            width: 100%;
+            padding: 14px 18px;
+            background: transparent;
+            border: none;
+            color: #f87171;
+            font-size: 0.82rem;
+            font-family: 'Inter', sans-serif;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .dropdown-logout-btn:hover {
+            background: rgba(248, 113, 113, 0.08);
+        }
+
+        /* ===================== Login Button (when logged out) ===================== */
+        #login-nav-btn {
+            display: none;
+            padding: 7px 18px;
+            background: rgba(255, 182, 193, 0.12);
+            border: 1px solid rgba(255, 182, 193, 0.35);
+            border-radius: 40px;
+            color: #ffb6c1;
+            font-size: 0.8rem;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+            white-space: nowrap;
+        }
+
+        #login-nav-btn.visible {
+            display: block;
+        }
+
+        #login-nav-btn:hover {
+            background: rgba(255, 182, 193, 0.2);
+            border-color: rgba(255, 182, 193, 0.6);
+        }
+
+        /* Spinner for auth loading */
+        #auth-loading {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #auth-loading.hidden {
+            display: none;
+        }
+
+        .auth-spinner {
+            width: 36px;
+            height: 36px;
+            border: 3px solid rgba(255, 182, 193, 0.2);
+            border-top-color: #ffb6c1;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Body overlay when dropdown is open */
+        #dropdown-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+        }
+
+        #dropdown-backdrop.open {
+            display: block;
+        }
+
+        /* ===================== Dropdown View More Link ===================== */
+        .dropdown-view-more {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 18px;
+            color: #ffb6c1;
+            font-size: 0.82rem;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            border-top: 1px solid #1e1e22;
+            transition: background 0.2s;
+            background: transparent;
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+            width: 100%;
+            text-align: left;
+        }
+        .dropdown-view-more:hover {
+            background: rgba(255,182,193,0.07);
+        }
+        .dropdown-view-more svg { flex-shrink: 0; }
+
+        /* ===================== Loyalty Card Modal ===================== */
+        #loyalty-modal-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        #loyalty-modal-backdrop.open {
+            display: flex;
+            animation: modalFadeIn 0.3s ease forwards;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        #loyalty-modal {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+            background: #0d0d0f;
+            border: 1px solid #2a2a2e;
+            border-radius: 24px;
+            padding: 36px 32px;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 32px 64px rgba(0,0,0,0.8);
+            animation: modalSlideUp 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        #loyalty-modal-close {
+            position: absolute;
+            top: 16px; right: 16px;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: #888;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+        #loyalty-modal-close:hover { background: rgba(255,255,255,0.12); color: #fff; }
+        .lm-header {
+            margin-bottom: 24px;
+        }
+        .lm-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,182,193,0.1);
+            border: 1px solid rgba(255,182,193,0.25);
+            border-radius: 30px;
+            padding: 4px 12px;
+            font-size: 0.68rem;
+            color: #ffb6c1;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .lm-tag-dot {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: #ffb6c1;
+            box-shadow: 0 0 6px rgba(255,182,193,0.8);
+        }
+        .lm-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+            font-family: 'Playfair Display', serif;
+        }
+        .lm-subtitle {
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        /* Stamp card */
+        .stamp-card {
+            background: linear-gradient(135deg, #111115, #1a1a20);
+            border: 1px solid #2a2a30;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .stamp-card::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 160px; height: 160px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,182,193,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .stamp-card-label {
+            font-size: 0.68rem;
+            color: #555;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .stamp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .stamp-slot {
+            aspect-ratio: 1;
+            border-radius: 14px;
+            border: 1.5px dashed #2a2a30;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+            position: relative;
+            overflow: hidden;
+            background: rgba(255,255,255,0.02);
+        }
+        .stamp-slot.filled {
+            border: 1.5px solid rgba(255,182,193,0.4);
+            background: linear-gradient(135deg, rgba(255,182,193,0.12), rgba(229,193,88,0.08));
+            box-shadow: 0 0 20px rgba(255,182,193,0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        .stamp-slot.filled::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), transparent 60%);
+        }
+        .stamp-slot-empty-icon {
+            font-size: 1.4rem;
+            opacity: 0.15;
+        }
+        .stamp-progress-bar {
+            height: 4px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.06);
+            overflow: hidden;
+        }
+        .stamp-progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #ffb6c1, #e5c158);
+            transition: width 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .stamp-count-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .stamp-count-text {
+            font-size: 0.75rem;
+            color: #888;
+        }
+        .stamp-count-number {
+            font-size: 0.75rem;
+            color: #ffb6c1;
+            font-weight: 600;
+        }
+        /* Reward info */
+        .lm-reward {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(229,193,88,0.06);
+            border: 1px solid rgba(229,193,88,0.18);
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 16px;
+        }
+        .lm-reward-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+        .lm-reward-text {
+            font-size: 0.8rem;
+            color: #c9a93a;
+            line-height: 1.55;
+        }
+        .lm-reward-text strong { color: #e5c158; }
+        .lm-note {
+            font-size: 0.72rem;
+            color: #444;
+            text-align: center;
+            line-height: 1.6;
+        }
+        /* Loading state for loyalty card */
+        .lm-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px;
+            gap: 10px;
+            color: #555;
+            font-size: 0.82rem;
+        }
+        .lm-spinner {
+            width: 20px; height: 20px;
+            border: 2px solid rgba(255,182,193,0.2);
+            border-top-color: #ffb6c1;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+    </style>
 
 </head>
 
 <body>
+
+    <!-- ===================== AUTH LOADING SCREEN ===================== -->
+    <div id="auth-loading">
+        <div class="auth-spinner"></div>
+    </div>
+
+    <!-- ===================== AUTH OVERLAY MODAL ===================== -->
+    <div id="auth-overlay" class="hidden">
+
+        <!-- LEFT PANEL — Brand / Visual -->
+        <div class="auth-left">
+            <div class="auth-left-glow-1"></div>
+            <div class="auth-left-glow-2"></div>
+            <div class="auth-left-glow-3"></div>
+
+            <!-- Decorative ping rings -->
+            <div class="auth-ping-ring"></div>
+            <div class="auth-ping-ring"></div>
+            <div class="auth-ping-ring"></div>
+
+            <!-- Brand name top-left -->
+            <div class="auth-brand-mark">Ch Studio<span>.</span></div>
+
+            <!-- Center visual -->
+            <div class="auth-left-visual">
+                <div class="visual-emoji">🛵</div>
+            </div>
+
+            <!-- Bottom text content -->
+            <div class="auth-left-content">
+                <div class="auth-left-tag">
+                    <div class="auth-left-tag-dot"></div>
+                    台中霧峰 · 大里 · 專業代洗
+                </div>
+                <h2 class="auth-left-headline">
+                    為你的愛車<br>
+                    <em>打造完美蛻變</em>
+                </h2>
+                <p class="auth-left-desc">
+                    Ch Studio 提供頂級機車代洗服務，從精緻泡沫刷洗到陶瓷鍍膜，每一個細節都是對你愛車最誠摯的呵護。
+                    立即加入會員，解鎖專屬集點優惠與最新洗車資訊。
+                </p>
+                <div class="auth-features">
+                    <div class="auth-feature-item">
+                        <div class="auth-feature-icon">✨</div>
+                        查看所有服務方案與即時定價
+                    </div>
+                    <div class="auth-feature-item">
+                        <div class="auth-feature-icon">🎫</div>
+                        集點回饋 · 折扣優惠專屬通知
+                    </div>
+                    <div class="auth-feature-item">
+                        <div class="auth-feature-icon">📷</div>
+                        全程縮時錄影 · 施工透明保障
+                    </div>
+                    <div class="auth-feature-item">
+                        <div class="auth-feature-icon">🛡️</div>
+                        鍍膜知識 · 保養小撇步免費學
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel divider -->
+        <div class="auth-panel-divider"></div>
+
+        <!-- RIGHT PANEL — Form -->
+        <div class="auth-right">
+
+            <!-- Mobile-only brand header -->
+            <div class="auth-mobile-brand">
+                <h2>Ch Studio</h2>
+                <p>台中霧峰・大里 · 專業機車代洗</p>
+            </div>
+
+            <div id="auth-form-wrap">
+
+                <!-- Message display -->
+                <div id="auth-error" class="auth-error"></div>
+
+                <!-- ── LOGIN VIEW ── -->
+                <div id="view-login" class="auth-view active">
+                    <div class="auth-form-heading">
+                        <h3>歡迎回來 👋</h3>
+                        <p>登入後即可查看服務詳情、集點記錄與最新洗車優惠資訊。</p>
+                    </div>
+
+                    <form id="login-form">
+                        <label class="auth-label" for="login-email">電子郵件</label>
+                        <input id="login-email" type="email" class="auth-input" placeholder="example@email.com" required>
+
+                        <label class="auth-label" for="login-password">密碼</label>
+                        <input id="login-password" type="password" class="auth-input" placeholder="••••••••" required>
+
+                        <button type="submit" class="auth-btn-primary">登入帳號</button>
+                    </form>
+
+                    <div class="auth-footer-links" style="margin-top:16px;">
+                        <a id="forgot-password-link" href="#">忘記密碼？</a>
+                        <a id="go-register-link" href="#">免費建立帳號 →</a>
+                    </div>
+                </div>
+
+                <!-- ── REGISTER VIEW ── -->
+                <div id="view-register" class="auth-view">
+                    <div class="auth-form-heading">
+                        <h3>加入 Ch Studio 🛵</h3>
+                        <p>免費註冊，搶先掌握洗車優惠、鍍膜知識與集點回饋，讓愛車長期保持閃亮狀態！</p>
+                    </div>
+
+                    <!-- Spam reminder -->
+                    <div class="auth-spam-note">
+                        <div class="auth-spam-note-icon">📬</div>
+                        <div class="auth-spam-note-text">
+                            <strong>注意：</strong>驗證信有時會進入<strong>垃圾郵件資料夾</strong>，請務必查看並點擊驗證連結後，方可登入帳號。
+                        </div>
+                    </div>
+
+                    <form id="register-form">
+                        <label class="auth-label" for="register-name">你的姓名</label>
+                        <input id="register-name" type="text" class="auth-input" placeholder="例：小明（選填）">
+
+                        <label class="auth-label" for="register-email">電子郵件</label>
+                        <input id="register-email" type="email" class="auth-input" placeholder="example@email.com" required>
+
+                        <label class="auth-label" for="register-password">設定密碼</label>
+                        <input id="register-password" type="password" class="auth-input" placeholder="至少 6 個字元" required>
+
+                        <button type="submit" class="auth-btn-primary">立即免費註冊</button>
+                    </form>
+
+                    <div class="auth-footer-links center" style="margin-top:16px;">
+                        <a id="go-login-link" href="#">← 已有帳號？返回登入</a>
+                    </div>
+                </div>
+
+                <div class="auth-encrypted">🔒 Encrypted by Google Firebase · Ch Studio 2026</div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== Loyalty Card Modal ===================== -->
+    <div id="loyalty-modal-backdrop">
+        <div id="loyalty-modal" role="dialog" aria-modal="true" aria-labelledby="lm-title-text">
+            <button id="loyalty-modal-close" aria-label="關閉">✕</button>
+
+            <div class="lm-header">
+                <div class="lm-tag"><div class="lm-tag-dot"></div>會員專屬</div>
+                <div class="lm-title" id="lm-title-text">我的集點卡 🎫</div>
+                <div class="lm-subtitle">每次洗車即可累積點數，集滿 <strong style="color:#ffb6c1;">3 點</strong> 兌換精彩回饋！</div>
+            </div>
+
+            <!-- Card content -->
+            <div id="lm-content">
+                <!-- Loading state -->
+                <div class="lm-loading" id="lm-loading">
+                    <div class="lm-spinner"></div> 載入中…
+                </div>
+
+                <!-- Stamp card (hidden until loaded) -->
+                <div id="lm-card-area" style="display:none;">
+                    <div class="stamp-card">
+                        <div class="stamp-card-label">Ch Studio 集點卡 &middot; 3 格滿點</div>
+                        <div class="stamp-grid" id="stamp-grid">
+                            <!-- 6 slots rendered by JS -->
+                        </div>
+                        <div class="stamp-progress-bar">
+                            <div class="stamp-progress-fill" id="stamp-progress-fill" style="width:0%"></div>
+                        </div>
+                        <div class="stamp-count-row">
+                            <span class="stamp-count-text">目前點數</span>
+                            <span class="stamp-count-number" id="stamp-count-display">0 / 3</span>
+                        </div>
+                    </div>
+
+                    <div class="lm-reward">
+                        <div class="lm-reward-icon">🎁</div>
+                        <div class="lm-reward-text">
+                            集滿 <strong>3 點</strong> 即可兌換 <strong>$50 折價券</strong>一張<br>
+                            或更換 <strong>小保養加購</strong> 優惠
+                        </div>
+                    </div>
+
+                    <div class="lm-note">
+                        點數由 Ch Studio 於施工後手動新增<br>
+                        如有疑問請聯繫 Instagram：<strong>@zkk_106</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dropdown backdrop -->
+    <div id="dropdown-backdrop"></div>
 
     <!-- Background Glow Orbs for Luxury/Premium Vibe -->
     <div class="glow-orb glow-orb-1"></div>
@@ -33,7 +1320,7 @@
         <div class="container header-inner">
             <!-- Logo -->
             <div class="logo">
-                <a href="#home">Zn Wash<span>.</span></a>
+                <a href="#home">Ch Studio<span>.</span></a>
             </div>
 
             <!-- Desktop + Mobile Nav -->
@@ -45,7 +1332,52 @@
                 </ul>
             </nav>
 
+            <!-- User Account Area (right side of header) -->
+            <div style="display:flex; align-items:center; gap:10px; position:relative; z-index: 1001;">
+                <!-- Login button (shown when logged out) -->
+                <button id="login-nav-btn" onclick="showAuthOverlay()" title="登入">登入 / 註冊</button>
 
+                <!-- User account button (shown when logged in) -->
+                <div id="user-account-btn" onclick="toggleUserDropdown(event)">
+                    <div class="user-avatar" id="user-avatar-initials">U</div>
+                    <span class="user-name-short" id="user-name-display">用戶</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="opacity:0.5; flex-shrink:0;">
+                        <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+
+                    <!-- Dropdown -->
+                    <div id="user-dropdown">
+                        <div class="dropdown-header">
+                            <div class="dropdown-name" id="dropdown-name">用戶名稱</div>
+                            <div class="dropdown-email" id="dropdown-email">email@example.com</div>
+                            <div class="dropdown-status">
+                                <div class="status-dot"></div>
+                                <span class="status-text">Active Session</span>
+                            </div>
+                            <div class="dropdown-last-login" id="dropdown-last-login"></div>
+                        </div>
+                        <!-- View More -->
+                        <button class="dropdown-view-more" id="view-more-btn">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                <path d="M8 21h8M12 17v4"/>
+                            </svg>
+                            查看更多（集點卡）
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-left:auto; opacity:0.4;">
+                                <path d="M4.5 3L7.5 6L4.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="dropdown-logout-btn" id="logout-btn">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                <polyline points="16 17 21 12 16 7"/>
+                                <line x1="21" y1="12" x2="9" y2="12"/>
+                            </svg>
+                            登出帳號
+                        </button>
+                    </div>
+                </div>
+            </div>
 
             <!-- Hamburger toggle -->
             <button class="hamburger" id="hamburger-btn" aria-label="開啟選單" aria-expanded="false"
@@ -71,7 +1403,7 @@
             <p class="hero-subtitle">大家好，我是霧峰洗車的那個大學生 👋<br>覺得洗車很累嗎？😩 沒有工具不會洗嗎？🔧<br>沒關係，這種體力活交給我！💪<br>你們負責變帥變漂亮！😎🌸
             </p>
             <div class="hero-actions">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSchrl8DVAdGS1L_XvHv4aFTElzlOuEs2cZga_oqSrNKwOhZZg/viewform"
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc47F7lDKhmV95xAlJ3jj0bSD492IXRRYebKsIJYjpQ7RuJKw/viewform"
                     target="_blank" class="btn btn-primary btn-lg" id="hero-book-btn">立即預約洗車</a>
                 <a href="#features" class="btn btn-outline btn-lg" id="hero-learn-btn">了解更多</a>
             </div>
@@ -82,7 +1414,7 @@
     <section id="features" class="section features">
         <div class="container reveal">
             <div class="section-header text-center">
-                <h2 class="section-title">為何選擇 Zn Wash?</h2>
+                <h2 class="section-title">為何選擇 Ch Studio?</h2>
                 <p class="section-desc">我們不只是洗車，我們將之視為一場藝術工藝的展現。</p>
             </div>
             <div class="features-grid">
@@ -109,7 +1441,7 @@
     <section id="loyalty" class="section loyalty">
         <div class="container reveal">
             <div class="section-header text-center">
-                <h2 class="section-title">Zn Wash 集點卡折扣優惠活動</h2>
+                <h2 class="section-title">Ch Studio 集點卡折扣優惠活動</h2>
                 <p class="section-desc">洗越多省越多，給愛車最頻繁的呵護 🎫</p>
             </div>
 
@@ -228,7 +1560,7 @@
         <div class="container reveal">
             <div class="scenario-item">
                 <div class="scenario-image">
-                    <img src="IMG_8414.png" alt="日常洗車 Zn Wash 霧峰" style="object-fit:cover;width:100%;height:100%;">
+                    <img src="IMG_8414.png" alt="日常洗車 Ch Studio 霧峰" style="object-fit:cover;width:100%;height:100%;">
                 </div>
                 <div class="scenario-content">
                     <h2 class="section-title">日常跋涉<br>也能隨時保持耀眼</h2>
@@ -249,7 +1581,7 @@
 
             <div class="scenario-item reverse">
                 <div class="scenario-image">
-                    <img src="IMG_9043.png" alt="出遊前愛車清潔 Zn Wash" style="object-fit:cover;width:100%;height:100%;">
+                    <img src="IMG_9043.png" alt="出遊前愛車清潔 Ch Studio" style="object-fit:cover;width:100%;height:100%;">
                 </div>
                 <div class="scenario-content">
                     <h2 class="section-title">出遊時刻<br>讓你的愛車格外亮眼</h2>
@@ -281,7 +1613,7 @@
                 <!-- Basic -->
                 <div class="pricing-card" id="plan-basic">
                     <h3 class="tier-name">基礎純淨 ✨</h3>
-                    <div class="tier-price"><span>NT$</span>300<span>起</span></div>
+                    <div class="tier-price"><span>NT$</span>350<span>起</span></div>
                     <p class="tier-desc">適合平時有保養、定期維持清潔的騎士 🛵</p>
                     <div class="tier-duration">⏱️ 施工時間：1.5h</div>
                     <ul class="tier-features">
@@ -295,7 +1627,7 @@
                 <div class="pricing-card popular" id="plan-popular">
                     <div class="popular-badge">最受歡迎 🔥</div>
                     <h3 class="tier-name">頂級煥新 💎</h3>
-                    <div class="tier-price"><span>NT$</span>450<span>起</span></div>
+                    <div class="tier-price"><span>NT$</span>500<span>起</span></div>
                     <p class="tier-desc">久未清理、需要全方位細節對待的愛車 🧹</p>
                     <div class="tier-duration">⏱️ 施工時間：2h</div>
                     <ul class="tier-features">
@@ -334,27 +1666,27 @@
                 <!-- Couple Basic -->
                 <div class="pricing-card" id="plan-couple-basic">
                     <h3 class="tier-name">雙人基礎鴛鴦洗 🫧</h3>
-                    <div class="tier-price"><span>NT$</span>550<span>起</span></div>
+                    <div class="tier-price"><span>NT$</span>600<span>起</span></div>
                     <p class="tier-desc">適合兩台車一起進行基礎保養，感情更加溫 🛵🛵</p>
                     <ul class="tier-features">
                         <li>包含兩台車「基礎純淨」所有服務</li>
                         <li>精緻泡沫刷洗 × 2</li>
                         <li>後照鏡防水鍍膜 × 2</li>
-                        <li>一起洗更划算（原價 600$）</li>
+                        <li>兩台同時預約更划算 🎉</li>
                     </ul>
                 </div>
                 <!-- Couple Popular -->
                 <div class="pricing-card popular" id="plan-couple-popular">
                     <div class="popular-badge">雙人首選 💕</div>
                     <h3 class="tier-name">雙人頂級鴛鴦洗 💎</h3>
-                    <div class="tier-price"><span>NT$</span>800<span>起</span></div>
+                    <div class="tier-price"><span>NT$</span>900<span>起</span></div>
                     <p class="tier-desc">兩人同行，讓愛車一起煥然一新 🧹🧹</p>
                     <ul class="tier-features">
                         <li>包含兩台車「頂級煥新」所有服務</li>
                         <li>塑料還原抗UV護理 × 2</li>
                         <li>安全帽外觀清潔 額外贈送封體維護 × 2</li>
                         <li>安全帽鏡片防水.防霧鍍膜 × 2</li>
-                        <li>超值優惠（原價 900$）</li>
+                        <li>頂級雙人同享最超值方案 💞</li>
                     </ul>
                 </div>
             </div>
@@ -463,8 +1795,8 @@
         <div class="container cta-content text-center">
             <h2 class="cta-title">準備好讓您的愛車閃耀了嗎？</h2>
             <p class="cta-desc">預約保養名額有限 立即預約專屬時段<br>體驗最便宜又最頂級的洗車服務!</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSchrl8DVAdGS1L_XvHv4aFTElzlOuEs2cZga_oqSrNKwOhZZg/viewform"
-                target="_blank" class="btn btn-primary btn-lg cta-btn" id="cta-book-btn">👉 立即預約 Zn Wash</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc47F7lDKhmV95xAlJ3jj0bSD492IXRRYebKsIJYjpQ7RuJKw/viewform"
+                target="_blank" class="btn btn-primary btn-lg cta-btn" id="cta-book-btn">👉 立即預約 Ch Studio</a>
         </div>
     </section>
 
@@ -472,7 +1804,7 @@
     <footer class="footer">
         <div class="container footer-inner">
             <div class="footer-col">
-                <span class="logo-text">Zn Wash<span>.</span></span>
+                <span class="logo-text">Ch Studio<span>.</span></span>
                 <p class="footer-desc">極致細節 重塑巔峰<br>給您高品質的洗車個人工作室!</p>
             </div>
             <div class="footer-col">
@@ -502,10 +1834,349 @@
         </div>
         <div class="footer-bottom">
             <div class="container text-center">
-                <p>&copy; 2026 Zn Wash. All rights reserved.</p>
+                <p>&copy; 2026 Ch Studio. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- ===================== Firebase SDK (CDN) ===================== -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js';
+        import {
+            getAuth,
+            signInWithEmailAndPassword,
+            createUserWithEmailAndPassword,
+            signOut,
+            sendPasswordResetEmail,
+            sendEmailVerification,
+            onAuthStateChanged,
+            updateProfile
+        } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js';
+        import {
+            getFirestore,
+            doc,
+            getDoc,
+            setDoc
+        } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js';
+
+        // ── Firebase Config ──
+        const firebaseConfig = {
+            apiKey: "AIzaSyDKsLGN8LbebIj1lOFBpLBTyQg8t-ldA1s",
+            authDomain: "ch-studio-sign-in.firebaseapp.com",
+            projectId: "ch-studio-sign-in",
+            storageBucket: "ch-studio-sign-in.firebasestorage.app",
+            messagingSenderId: "247791710532",
+            appId: "1:247791710532:web:6e588ec8cb8524bef5a711"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db   = getFirestore(app);
+
+        // ── DOM References ──
+        const authLoading    = document.getElementById('auth-loading');
+        const authOverlay    = document.getElementById('auth-overlay');
+        const authError      = document.getElementById('auth-error');
+        const viewLogin      = document.getElementById('view-login');
+        const viewRegister   = document.getElementById('view-register');
+        const loginNavBtn    = document.getElementById('login-nav-btn');
+        const userAccountBtn = document.getElementById('user-account-btn');
+        const userAvatarInitials = document.getElementById('user-avatar-initials');
+        const userNameDisplay   = document.getElementById('user-name-display');
+        const dropdownName   = document.getElementById('dropdown-name');
+        const dropdownEmail  = document.getElementById('dropdown-email');
+        const dropdownLastLogin = document.getElementById('dropdown-last-login');
+        const userDropdown   = document.getElementById('user-dropdown');
+        const dropdownBackdrop   = document.getElementById('dropdown-backdrop');
+        const loyaltyModalBd     = document.getElementById('loyalty-modal-backdrop');
+        const viewMoreBtn        = document.getElementById('view-more-btn');
+        const loyaltyModalClose  = document.getElementById('loyalty-modal-close');
+        const stampGrid          = document.getElementById('stamp-grid');
+        const stampProgressFill  = document.getElementById('stamp-progress-fill');
+        const stampCountDisplay  = document.getElementById('stamp-count-display');
+        const lmLoading          = document.getElementById('lm-loading');
+        const lmCardArea         = document.getElementById('lm-card-area');
+
+        // ── Loyalty Card Modal Logic ──
+        let currentUserUid = null;
+
+        function openLoyaltyModal() {
+            loyaltyModalBd.classList.add('open');
+            userDropdown.classList.remove('open');
+            dropdownBackdrop.classList.remove('open');
+            loadUserPoints();
+        }
+        function closeLoyaltyModal() {
+            loyaltyModalBd.classList.remove('open');
+        }
+        viewMoreBtn.addEventListener('click', openLoyaltyModal);
+        loyaltyModalClose.addEventListener('click', closeLoyaltyModal);
+        loyaltyModalBd.addEventListener('click', (e) => {
+            if (e.target === loyaltyModalBd) closeLoyaltyModal();
+        });
+
+        async function loadUserPoints() {
+            if (!currentUserUid) return;
+            // Reset to loading state
+            lmLoading.style.display = 'flex';
+            lmCardArea.style.display = 'none';
+
+            try {
+                const ref  = doc(db, 'users', currentUserUid);
+                const snap = await getDoc(ref);
+                const points = snap.exists() ? (snap.data().points ?? 0) : 0;
+                renderStampCard(points);
+            } catch(err) {
+                console.error('Failed to load points:', err);
+                renderStampCard(0);
+            }
+        }
+
+        function renderStampCard(points) {
+            const total = 3;
+            const filled = Math.min(points, total);
+            // Build stamp slots
+            stampGrid.innerHTML = '';
+            for (let i = 0; i < total; i++) {
+                const slot = document.createElement('div');
+                slot.className = 'stamp-slot' + (i < filled ? ' filled' : '');
+                if (i < filled) {
+                    slot.textContent = '🛵';
+                } else {
+                    const empty = document.createElement('span');
+                    empty.className = 'stamp-slot-empty-icon';
+                    empty.textContent = '○';
+                    slot.appendChild(empty);
+                }
+                stampGrid.appendChild(slot);
+            }
+            // Progress bar
+            const pct = Math.min((filled / total) * 100, 100);
+            stampProgressFill.style.width = pct + '%';
+            // Count text
+            stampCountDisplay.textContent = filled + ' / ' + total;
+            // Show card
+            lmLoading.style.display = 'none';
+            lmCardArea.style.display = 'block';
+        }
+
+        // ── Auth State Observer ──
+        onAuthStateChanged(auth, (user) => {
+            // Hide loading spinner
+            authLoading.classList.add('hidden');
+
+            if (user) {
+                const isEmailUnverified = user.providerData.some(p => p.providerId === 'password') && !user.emailVerified;
+                if (isEmailUnverified) {
+                    // Email not verified — show auth overlay with a reminder
+                    showAuthOverlay();
+                    showError('您的 Email 尚未驗證，請檢查信箱並點擊驗證連結後再登入。');
+                    signOut(auth);
+                    return;
+                }
+                // Logged in
+                hideAuthOverlay();
+                updateNavForLoggedIn(user);
+            } else {
+                // Logged out — show auth overlay
+                showAuthOverlay();
+                updateNavForLoggedOut();
+            }
+        });
+
+        // ── Show / Hide Auth Overlay ──
+        window.showAuthOverlay = function() {
+            authOverlay.classList.remove('hidden', 'hiding');
+            showView('login');
+            clearError();
+        };
+
+        function hideAuthOverlay() {
+            authOverlay.classList.add('hiding');
+            setTimeout(() => {
+                authOverlay.classList.add('hidden');
+                authOverlay.classList.remove('hiding');
+            }, 600);
+        }
+
+        // ── View Switching ──
+        function showView(name) {
+            viewLogin.classList.remove('active');
+            viewRegister.classList.remove('active');
+            clearError();
+            if (name === 'login') viewLogin.classList.add('active');
+            if (name === 'register') viewRegister.classList.add('active');
+        }
+
+        // ── Error / Success Display ──
+        function showError(msg, type = 'error') {
+            authError.textContent = msg;
+            authError.classList.remove('is-error', 'is-success');
+            authError.classList.add('visible', type === 'success' ? 'is-success' : 'is-error');
+        }
+
+        function clearError() {
+            authError.textContent = '';
+            authError.classList.remove('visible');
+        }
+
+        // ── Update Nav after Login ──
+        function updateNavForLoggedIn(user) {
+            loginNavBtn.classList.remove('visible');
+            userAccountBtn.classList.add('visible');
+            currentUserUid = user.uid;
+
+            // Use the registered nickname (displayName). If none, show a generic label.
+            const displayName = user.displayName || '會員';
+            const email = user.email || '';
+
+            // Avatar initials
+            let initials = displayName.charAt(0).toUpperCase();
+            if (user.displayName) {
+                const parts = user.displayName.split(' ');
+                if (parts.length > 1) initials = parts[0].charAt(0).toUpperCase() + parts[parts.length - 1].charAt(0).toUpperCase();
+            }
+
+            userAvatarInitials.textContent = initials;
+            userNameDisplay.textContent = displayName.length > 10 ? displayName.substring(0, 10) + '…' : displayName;
+            dropdownName.textContent = user.displayName || displayName;
+            dropdownEmail.textContent = email;
+
+            // Last sign-in time
+            if (user.metadata.lastSignInTime) {
+                const d = new Date(user.metadata.lastSignInTime);
+                dropdownLastLogin.textContent = '上次登入：' + d.toLocaleDateString('zh-TW') + ' ' + d.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
+            }
+        }
+
+        function updateNavForLoggedOut() {
+            loginNavBtn.classList.add('visible');
+            userAccountBtn.classList.remove('visible');
+            userDropdown.classList.remove('open');
+            currentUserUid = null;
+        }
+
+        // ── Dropdown Toggle ──
+        window.toggleUserDropdown = function(e) {
+            e.stopPropagation();
+            const isOpen = userDropdown.classList.contains('open');
+            if (isOpen) {
+                userDropdown.classList.remove('open');
+                dropdownBackdrop.classList.remove('open');
+            } else {
+                userDropdown.classList.add('open');
+                dropdownBackdrop.classList.add('open');
+            }
+        };
+
+        dropdownBackdrop.addEventListener('click', () => {
+            userDropdown.classList.remove('open');
+            dropdownBackdrop.classList.remove('open');
+        });
+
+        // ── Login Form ──
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearError();
+            const email    = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            try {
+                const cred = await signInWithEmailAndPassword(auth, email, password);
+                if (!cred.user.emailVerified) {
+                    showError('請先驗證您的 Email 後再登入。');
+                    await signOut(auth);
+                }
+            } catch (err) {
+                const msg = getFirebaseErrorMessage(err.code);
+                showError(msg);
+            }
+        });
+
+        // ── Register Form ──
+        document.getElementById('register-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearError();
+            const name     = document.getElementById('register-name').value.trim();
+            const email    = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            try {
+                const cred = await createUserWithEmailAndPassword(auth, email, password);
+                if (name) {
+                    await updateProfile(cred.user, { displayName: name });
+                }
+                // Initialize user document in Firestore with 0 points
+                await setDoc(doc(db, 'users', cred.user.uid), {
+                    displayName: name || '',
+                    email: email,
+                    points: 0,
+                    createdAt: new Date().toISOString()
+                });
+                await sendEmailVerification(cred.user);
+                await signOut(auth);
+                showView('login');
+                showError('✅ 驗證信已寄出！請檢查收件匣與垃圾郵件資料夾，點擊驗證連結後即可登入。', 'success');
+            } catch (err) {
+                const msg = getFirebaseErrorMessage(err.code);
+                showError(msg);
+            }
+        });
+
+        // ── Forgot Password ──
+        document.getElementById('forgot-password-link').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            if (!email) {
+                showError('請先在 Email 欄位輸入您的電子郵件地址。');
+                return;
+            }
+            clearError();
+            try {
+                await sendPasswordResetEmail(auth, email);
+                showError('✅ 重設密碼連結已寄出！請同時檢查垃圾郵件資料夾。', 'success');
+            } catch (err) {
+                showError(getFirebaseErrorMessage(err.code));
+            }
+        });
+
+        // ── View Switch Links ──
+        document.getElementById('go-register-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            showView('register');
+        });
+
+        document.getElementById('go-login-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            showView('login');
+        });
+
+        // ── Logout ──
+        document.getElementById('logout-btn').addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+                userDropdown.classList.remove('open');
+                dropdownBackdrop.classList.remove('open');
+            } catch (err) {
+                console.error('Logout error:', err);
+            }
+        });
+
+        // ── Firebase Error Messages (Chinese) ──
+        function getFirebaseErrorMessage(code) {
+            const map = {
+                'auth/invalid-email':            'Email 格式不正確。',
+                'auth/user-not-found':           '找不到此帳號，請先註冊。',
+                'auth/wrong-password':           '密碼錯誤，請再試一次。',
+                'auth/invalid-credential':       'Email 或密碼錯誤，請確認後重試。',
+                'auth/email-already-in-use':     '此 Email 已被註冊，請直接登入。',
+                'auth/weak-password':            '密碼強度不足，請使用至少 6 個字元。',
+                'auth/too-many-requests':        '嘗試次數過多，請稍後再試。',
+                'auth/network-request-failed':   '網路連線失敗，請檢查網路狀態。',
+                'auth/popup-blocked':            '彈出視窗被封鎖，請允許彈出視窗後再試。',
+                'auth/operation-not-allowed':    '此登入方式尚未啟用。',
+            };
+            return map[code] || '發生未知錯誤，請稍後再試。';
+        }
+    </script>
 
     <!-- ===================== JavaScript ===================== -->
     <script>
@@ -566,8 +2237,7 @@
                 
                 document.body.appendChild(bubble);
                 
-                // Use Web Animations API (fully compatible with iOS Safari / Android)
-                // This bypasses the mobile Safari bug where CSS variables inside @keyframes do not update.
+                // Use Web Animations API
                 bubble.animate([
                     { 
                         transform: 'translate(-50%, -50%) translate3d(0, 0, 0) scale(0.2)', 
